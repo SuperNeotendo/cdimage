@@ -17,15 +17,36 @@
 #include "createtrackdialog.h"
 #include <QFileDialog>
 
+extern double input_tr, input_dtr; // How ugly!
+
 CreateTrackDialog::CreateTrackDialog(QWidget* parent)
     :QDialog(parent)
 {
-	setupUi(this);
-//todo: implement some database
+
+    setupUi(this);
     m_presets["Verbatim CD-RW Hi-Speed 8x-10x 700 MB SERL 1"] = {22951.52,1.3865961};
     m_presets["Verbatim CD-RW Hi-Speed 8x-10x 700 MB SERL 2"] = {22951.07,1.3865958};
     m_presets["eProformance CD-RW 4x-10x 700 MB Prodisk Technology Inc"] = {22936.085,1.38314};
-    m_presets["TDK CD-RW 4x-12x HIGH SPEED 700MB 80MIN"] = {23000.145,1.38659775};
+    m_presets["TDK CD-RW 4x-12x HIGH SPEED 700MB 80MIN"] = {23083.0504611287,1.38545893900397}; // Best
+    m_presets["Verbatim CD-RW 12x 700 MB SERL #43480"] = {22951.25,1.3865961}; // Very good
+    if (input_tr > 0) m_presets["My Disk"] = {input_tr, input_dtr};
+
+    // WMS, Aug 2 2025
+    FILE *fp; // file pointer
+    char disk_name[50];
+    double tr, dtr;
+    if ((fp = fopen("disks.txt", "r")) == NULL) { // My disks file, at same level as cdimage
+            printf("Cannot open disks file 'disks.txt', so ignoring.\n");
+    }
+    else {
+        while (fscanf(fp, "%s %lf %lf", disk_name, &tr, &dtr) != -1) {
+            printf("%s %lf %lf\n", disk_name, tr, dtr);
+            m_presets[disk_name] = {tr, dtr};
+        }
+        fclose(fp);
+    }
+    // End of WMS edits
+
     QMapIterator<QString, QVector<double>> i(m_presets);
     while (i.hasNext()) {
         i.next();
@@ -39,7 +60,9 @@ CreateTrackDialog::CreateTrackDialog(QWidget* parent)
 //select file to save
 void CreateTrackDialog::selectFile()
 {
+
     QString fileName = QFileDialog::getSaveFileName(this, tr("Open File"),leFileName->text(),tr("All files (*)"));
+
     if(!fileName.isNull())
         leFileName->setText(fileName);
 }
