@@ -72,8 +72,12 @@ void MainWindow::createTrack()
 void MainWindow::about(){
     QMessageBox::about(this, tr("About"), tr("<h1>CDImage</h1>"
                                              "<h2>A tool for burning pictures on a compact disc surface</h2>"
-                                             "<h3>version 0.0</h3>"
+                                             "<h3>version 1.0</h3>"
                                              "Copyright (C) 2008-2022 arduinocelentano<hr>"
+                                             "<h3>Enhanced by WyomingWill, Make-42<h3>"
+                                             "V1.0 Compiled by Neotendo<hr>"
+                                             "<p>Visit <a href=\"https://www.desmos.com/calculator/e2lkcxskme/\">Visual Calculator</a> for a Visual TR/DTR Calculator"
+                                             "<p>GitHub <a href=\"https://github.com/arduinocelentano/cdimage/issues/23\">2025 GitHub Thread</a>"
                                              "<font color=gray><p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>"
 
                                          "<p>This program is distributed in the hope that it will be useful,"
