@@ -17,10 +17,18 @@
 #include "mainwindow.h"
 #include <QApplication>
 
+
+double input_tr, input_dtr; // What??!!! Global variables?
+
 int main ( int argc, char** argv )
 {
-	QApplication app ( argc, argv );
-	MainWindow win;
-	win.show();
-	return app.exec();
+    if (argc != 3) printf("Usage: cdmage tr dtr\n");
+    input_tr = atof(argv[1]);
+    input_dtr = atof(argv[2]);
+    QApplication app ( argc, argv );
+    MainWindow win;
+    win.setWindowTitle("CD-Image Version: 1.0");
+    win.show();
+    return app.exec();
 }
+
