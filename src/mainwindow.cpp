@@ -72,7 +72,7 @@ void MainWindow::createTrack()
 void MainWindow::about(){
     QMessageBox::about(this, tr("About"), tr("<h1>CDImage</h1>"
                                              "<h2>A tool for burning pictures on a compact disc surface</h2>"
-                                             "<h3>version 1.0</h3>"
+                                             "<h3>version 1.1</h3>"
                                              "Copyright (C) 2008-2022 arduinocelentano<hr>"
                                              "<h3>Enhanced by WyomingWill, Make-42<h3>"
                                              "V1.0 Compiled by Neotendo<hr>"

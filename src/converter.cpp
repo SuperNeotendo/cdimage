@@ -95,7 +95,8 @@ bool Converter::convert(const QImage img, const QString& filename)
 			//imageFile.write(&pallete[cl],1);
 			
 			if(m_mixColors)
-				cl = ( ((rand()*85/RAND_MAX)<(color%85)) || ((color%85)==84))? c2: c1;
+            //	cl = ( ((rand()*85/RAND_MAX)<(color%85)) || ((color%85)==84))? c2: c1;
+                cl = (((u01()*85)<(color%85)) || ((color%85)==84)) ? c2:c1;
 			else
 				cl=( ( (color%85)>(zs*5+zf) ) || ((color%85)==84))?c2:c1;
 			ad(pallete[cl],&imageFile);

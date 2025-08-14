@@ -46,6 +46,7 @@ public:
 	Converter(QObject *parent = 0);
 	Converter(QObject *parent = 0, double tr0 = 22951.52052, double dtr = 1.3865961805, double r0 = 24.5);
 	~Converter();
+    double u01() {return (double)rand() / (double)RAND_MAX;}
 	double tr0(){return m_tr0;}
 	double dtr(){return m_dtr;}
 	double r0(){return m_r0;}

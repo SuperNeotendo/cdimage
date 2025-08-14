@@ -177,7 +177,7 @@
    <item>
     <widget class="QCheckBox" name="cbMixColors">
      <property name="text">
-      <string>Mix colors</string>
+      <string>Half-toning</string>
      </property>
     </widget>
    </item>

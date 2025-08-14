@@ -27,7 +27,7 @@ int main ( int argc, char** argv )
     input_dtr = atof(argv[2]);
     QApplication app ( argc, argv );
     MainWindow win;
-    win.setWindowTitle("CD-Image Version: 1.0");
+    win.setWindowTitle("CD-Image Version: 1.1");
     win.show();
     return app.exec();
 }
